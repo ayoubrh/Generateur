@@ -1,0 +1,15 @@
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\bin\Debug\Generateur.exe.config
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\bin\Debug\Generateur.exe
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\bin\Debug\Generateur.pdb
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\obj\Debug\Generateur.csprojResolveAssemblyReference.cache
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\obj\Debug\Generateur.Form1.resources
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\obj\Debug\Generateur.Properties.Resources.resources
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\obj\Debug\Generateur.csproj.GenerateResource.Cache
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\obj\Debug\Generateur.exe
+c:\users\ayoub\documents\visual studio 2015\Projects\Generateur\Generateur\obj\Debug\Generateur.pdb
+C:\Users\Ayoub\Documents\Visual Studio 2015\Projects\Generateur\Generateur\bin\Debug\BoxTV.mdf
+C:\Users\Ayoub\Documents\Visual Studio 2015\Projects\Generateur\Generateur\bin\Debug\BoxTV_log.ldf
+C:\Users\Ayoub\Documents\Visual Studio 2015\Projects\Generateur\Generateur\bin\Debug\EntityFramework.dll
+C:\Users\Ayoub\Documents\Visual Studio 2015\Projects\Generateur\Generateur\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ayoub\Documents\Visual Studio 2015\Projects\Generateur\Generateur\bin\Debug\EntityFramework.xml
+C:\Users\Ayoub\Documents\Visual Studio 2015\Projects\Generateur\Generateur\bin\Debug\EntityFramework.SqlServer.xml

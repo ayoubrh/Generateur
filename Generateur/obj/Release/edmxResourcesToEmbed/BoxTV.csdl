@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BoxTVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="IdCat" />
+    </Key>
+    <Property Name="IdCat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Date" Relationship="Self.CatDate" FromRole="Categorie" ToRole="Date" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="IdCustomer" />
+    </Key>
+    <Property Name="IdCustomer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="age" Type="Int32" Nullable="false" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numchildren" Type="Int32" Nullable="false" />
+    <Property Name="situation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="numtv" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Date" Relationship="Self.CustomerDate" FromRole="Customer" ToRole="Date" />
+  </EntityType>
+  <EntityType Name="Date">
+    <Key>
+      <PropertyRef Name="IdDate" />
+    </Key>
+    <Property Name="IdDate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="datedebut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="duree" Type="Int32" Nullable="false" />
+    <Property Name="Customer" Type="Int32" Nullable="false" />
+    <Property Name="Cat" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Categorie" Relationship="Self.CatDate" FromRole="Date" ToRole="Categorie" />
+    <NavigationProperty Name="Customer1" Relationship="Self.CustomerDate" FromRole="Date" ToRole="Customer" />
+  </EntityType>
+  <Association Name="CatDate">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Date" Type="Self.Date" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="IdCat" />
+      </Principal>
+      <Dependent Role="Date">
+        <PropertyRef Name="Cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerDate">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Date" Type="Self.Date" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="Date">
+        <PropertyRef Name="Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BoxTVEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" />
+    <EntitySet Name="Date" EntityType="Self.Date" />
+    <AssociationSet Name="CatDate" Association="Self.CatDate">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Date" EntitySet="Date" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerDate" Association="Self.CustomerDate">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Date" EntitySet="Date" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

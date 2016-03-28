@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BoxTVModelStoreContainer" CdmEntityContainer="BoxTVEntities">
+    <EntitySetMapping Name="Categorie">
+      <EntityTypeMapping TypeName="BoxTVModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="IdCat" ColumnName="IdCat" />
+          <ScalarProperty Name="libelle" ColumnName="libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="BoxTVModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="IdCustomer" ColumnName="IdCustomer" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="numchildren" ColumnName="numchildren" />
+          <ScalarProperty Name="situation" ColumnName="situation" />
+          <ScalarProperty Name="numtv" ColumnName="numtv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Date">
+      <EntityTypeMapping TypeName="BoxTVModel.Date">
+        <MappingFragment StoreEntitySet="Date">
+          <ScalarProperty Name="IdDate" ColumnName="IdDate" />
+          <ScalarProperty Name="datedebut" ColumnName="datedebut" />
+          <ScalarProperty Name="duree" ColumnName="duree" />
+          <ScalarProperty Name="Customer" ColumnName="Customer" />
+          <ScalarProperty Name="Cat" ColumnName="Cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

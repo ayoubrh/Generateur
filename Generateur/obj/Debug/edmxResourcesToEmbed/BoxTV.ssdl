@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BoxTVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categorie">
+    <Key>
+      <PropertyRef Name="IdCat" />
+    </Key>
+    <Property Name="IdCat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="libelle" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="IdCustomer" />
+    </Key>
+    <Property Name="IdCustomer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="age" Type="int" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="numchildren" Type="int" Nullable="false" />
+    <Property Name="situation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="numtv" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Date">
+    <Key>
+      <PropertyRef Name="IdDate" />
+    </Key>
+    <Property Name="IdDate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="datedebut" Type="datetime" Nullable="false" />
+    <Property Name="duree" Type="int" Nullable="false" />
+    <Property Name="Customer" Type="int" Nullable="false" />
+    <Property Name="Cat" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CatDate">
+    <End Role="Categorie" Type="Self.Categorie" Multiplicity="1" />
+    <End Role="Date" Type="Self.Date" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorie">
+        <PropertyRef Name="IdCat" />
+      </Principal>
+      <Dependent Role="Date">
+        <PropertyRef Name="Cat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerDate">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Date" Type="Self.Date" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="IdCustomer" />
+      </Principal>
+      <Dependent Role="Date">
+        <PropertyRef Name="Customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BoxTVModelStoreContainer">
+    <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Date" EntityType="Self.Date" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="CatDate" Association="Self.CatDate">
+      <End Role="Categorie" EntitySet="Categorie" />
+      <End Role="Date" EntitySet="Date" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerDate" Association="Self.CustomerDate">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Date" EntitySet="Date" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
