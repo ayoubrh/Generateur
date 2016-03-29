@@ -116,6 +116,7 @@ namespace Generateur
             if (som == 100)
             {
                 IList<Customer> newC = new List<Customer>();
+                IList<Date> dates = new List<Date>();
 
                 for (int i=0;i< h; i++)
                 {
@@ -176,8 +177,9 @@ namespace Generateur
                             d.duree = rnd.Next(30,181);
                             d.Customer1 = c;
                             d.Categorie = Categorie;
-                            db.Date.Add(d);
-                            db.SaveChanges();
+                            //db.Date.Add(d);
+                            //db.SaveChanges();
+                            dates.Add(d);
                             progressBar.PerformStep();
                             //MessageBox.Show(" Date " + d.datedebut);
                         }
@@ -245,8 +247,9 @@ namespace Generateur
                             d.duree = rnd.Next(30, 181);
                             d.Customer1 = c;
                             d.Categorie = Categorie;
-                            db.Date.Add(d);
-                            db.SaveChanges();
+                            //db.Date.Add(d);
+                            //db.SaveChanges();
+                            dates.Add(d);
                             progressBar.PerformStep();
                             //MessageBox.Show(" Date " + d.datedebut);
                         }
@@ -255,17 +258,19 @@ namespace Generateur
                     //MessageBox.Show(" client " + i);
 
                 }
-                
+
                 //MessageBox.Show("age : "+newC[0].age+" sexe : "+ newC[1].gender);
                 //int x = db.SaveChanges();
 
                 //using (var context = new BoxTVEntities())
                 //{
-                    //var blog = new Blog { Name = "ADO.NET Blog" };
-                    //context.Blogs.Add(blog);
-                   // context.Customer.AddRange(newC);
-                    //context.SaveChanges();
+                //var blog = new Blog { Name = "ADO.NET Blog" };
+                //context.Blogs.Add(blog);
+                // context.Customer.AddRange(newC);
+                //context.SaveChanges();
                 //}
+                db.Date.AddRange(dates);
+                db.SaveChanges();
                 MessageBox.Show(" Done ");
             }
             else
